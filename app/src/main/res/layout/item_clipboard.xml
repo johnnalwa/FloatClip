@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardElevation="2dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginStart="2dp"
+    android:layout_marginEnd="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Colored Border (left) -->
+        <View
+            android:id="@+id/item_border"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:background="#3498db" />
+
+        <!-- Text Preview -->
+        <TextView
+            android:id="@+id/item_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/item_border"
+            android:layout_toRightOf="@id/item_border"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="12dp"
+            android:textColor="#34495e"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="Sample clipboard text" />
+
+        <!-- Timestamp -->
+        <TextView
+            android:id="@+id/item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_text"
+            android:layout_toEndOf="@id/item_border"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:textColor="#7f8c8d"
+            android:textSize="10sp"
+            android:text="12:34 PM" />
+
+        <!-- Pin Button -->
+        <ImageButton
+            android:id="@+id/btn_pin"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/btn_star_big_off"
+            android:tint="#bdbdbd"
+            android:contentDescription="Pin" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
