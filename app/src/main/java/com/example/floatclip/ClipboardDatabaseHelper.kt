@@ -81,6 +81,16 @@ class ClipboardDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATA
         db.delete(TABLE_NAME, "$COL_ID=?", arrayOf(id.toString()))
     }
 
+    fun deleteNonPinnedOlderThan(cutoff: Long) {
+        val db = writableDatabase
+        db.delete(
+            TABLE_NAME,
+            "$COL_IS_PINNED=0 AND $COL_TIMESTAMP<?",
+            arrayOf(cutoff.toString())
+        )
+    }
+
+
     private fun trimToMaxItems(db: SQLiteDatabase) {
         val cursor = db.rawQuery(
             "SELECT $COL_ID FROM $TABLE_NAME WHERE $COL_IS_PINNED=0 ORDER BY $COL_TIMESTAMP DESC LIMIT -1 OFFSET $MAX_ITEMS",

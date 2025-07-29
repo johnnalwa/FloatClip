@@ -24,6 +24,21 @@ class ClipboardService : Service() {
         clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         clipboardManager.addPrimaryClipChangedListener(clipboardListener)
         startForegroundService()
+        // --- Auto-delete timer logic ---
+        val prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
+        val autoDeleteMin = prefs.getInt("autodelete", 0)
+        if (autoDeleteMin > 0) {
+            val handler = android.os.Handler()
+            val runnable = object : Runnable {
+                override fun run() {
+                    val cutoff = System.currentTimeMillis() - autoDeleteMin * 60_000L
+                    dbHelper.deleteNonPinnedOlderThan(cutoff)
+                    handler.postDelayed(this, autoDeleteMin * 60_000L)
+                }
+            }
+            handler.postDelayed(runnable, autoDeleteMin * 60_000L)
+        }
+        // --- End auto-delete timer ---
     }
 
     private val clipboardListener = ClipboardManager.OnPrimaryClipChangedListener {

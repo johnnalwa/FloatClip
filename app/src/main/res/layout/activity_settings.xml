@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f9fa">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnBackground"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Widget Size"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary" />
+        <RadioGroup
+            android:id="@+id/widget_size_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+            <RadioButton android:id="@+id/size_small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Small" />
+            <RadioButton android:id="@+id/size_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Medium" />
+            <RadioButton android:id="@+id/size_large" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Large" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remember Widget Position"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary" />
+        <Switch android:id="@+id/switch_position_memory" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Enable" android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Auto-Delete Non-Pinned"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary" />
+        <SeekBar android:id="@+id/seek_autodelete" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="120" android:layout_marginBottom="8dp" />
+        <TextView android:id="@+id/text_autodelete" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Never" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dark Mode"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary" />
+        <Switch android:id="@+id/switch_darkmode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Enable" android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="32dp">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_export"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Export History"
+                android:icon="@android:drawable/ic_menu_save"
+                style="@style/Widget.Material3.Button" />
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_import"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Import History"
+                android:icon="@android:drawable/ic_menu_upload"
+                style="@style/Widget.Material3.Button" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

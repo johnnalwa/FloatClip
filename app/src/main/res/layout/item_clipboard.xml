@@ -33,11 +33,26 @@
             android:layout_toRightOf="@id/item_border"
             android:layout_alignParentTop="true"
             android:layout_marginStart="12dp"
+            android:layout_toStartOf="@id/btn_action"
             android:textColor="#34495e"
             android:textSize="12sp"
             android:maxLines="2"
             android:ellipsize="end"
             android:text="Sample clipboard text" />
+
+        <!-- Quick Action Button -->
+        <ImageButton
+            android:id="@+id/btn_action"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="4dp"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_menu_share"
+            android:tint="?attr/colorPrimary"
+            android:contentDescription="Quick Action" />
 
         <!-- Timestamp -->
         <TextView
@@ -48,7 +63,7 @@
             android:layout_toEndOf="@id/item_border"
             android:layout_marginStart="12dp"
             android:layout_marginTop="6dp"
-            android:textColor="#7f8c8d"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="10sp"
             android:text="12:34 PM" />
 
